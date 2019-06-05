@@ -10,7 +10,7 @@ class SearchesController < ApplicationController
      req.params['v'] = '20190601'
      req.params['near'] = params[:zipcode]
      req.params['query'] = 'coffee shop'
-     req.options.timeout = 0
+     
    end
 
    body = JSON.parse(@resp.body)
@@ -23,7 +23,7 @@ class SearchesController < ApplicationController
   rescue Faraday::ConnectionFailed
      @error = "There was a timeout. Please try again."
    end
-   
+
    render 'search'
   end
 end
